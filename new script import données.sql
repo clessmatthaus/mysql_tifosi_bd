@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tifosi`.`comprend` (
   `ingredient` INT NULL,
-  INDEX `ingredient` (`ingredient` ASC) VISIBLE)
+  INDEX `ingredient` (`ingredient`))
 ENGINE = InnoDB;
 
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `tifosi`.`focaccia` (
   `prix_focaccia` FLOAT NOT NULL,
   `comprend` INT NULL,
   PRIMARY KEY (`id_focaccia`),
-  INDEX `comprend` () VISIBLE)
+  INDEX `comprend` (`comprend`))
 ENGINE = InnoDB;
 
 
@@ -67,7 +67,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tifosi`.`achete` (
   `jour` DATE NOT NULL,
   `focaccia` INT NULL,
-  INDEX `focaccia` () VISIBLE)
+  INDEX `focaccia` (`focaccia`))
 ENGINE = InnoDB;
 
 
@@ -94,7 +94,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tifosi`.`appartient` (
   `marque` INT NULL,
-  INDEX `marque` () VISIBLE)
+  INDEX `marque` (`marque`))
 ENGINE = InnoDB;
 
 
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `tifosi`.`boisson` (
   `nom_boisson` VARCHAR(45) NOT NULL,
   `appartient` INT NULL,
   PRIMARY KEY (`id_boisson`),
-  INDEX `appartient` () VISIBLE)
+  INDEX `appartient` (`appartient`))
 ENGINE = InnoDB;
 
 
@@ -115,7 +115,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tifosi`.`contient` (
   `boisson` INT NULL,
-  INDEX `boisson` () VISIBLE)
+  INDEX `boisson` (`boisson`))
 ENGINE = InnoDB;
 
 
@@ -129,8 +129,8 @@ CREATE TABLE IF NOT EXISTS `tifosi`.`menu` (
   `constituer` INT NULL,
   `contient` INT NULL,
   PRIMARY KEY (`id_menu`),
-  INDEX `constituer` () VISIBLE,
-  INDEX `contient` () VISIBLE)
+  INDEX `constituer` (`constituer`),
+  INDEX `contient` (`contient`))
 ENGINE = InnoDB;
 
 
@@ -140,7 +140,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tifosi`.`paye` (
   `jour` DATE NOT NULL,
   `menu` INT NULL,
-  INDEX `menu` () VISIBLE)
+  INDEX `menu` (`menu`))
 ENGINE = InnoDB;
 
 
@@ -155,8 +155,8 @@ CREATE TABLE IF NOT EXISTS `tifosi`.`client` (
   `achete` INT NULL,
   `paye` INT NULL,
   PRIMARY KEY (`id_client`),
-  INDEX `achete` () VISIBLE,
-  INDEX `paye` () VISIBLE)
+  INDEX `achete` (`achete`),
+  INDEX `paye` (`paye`) )
 ENGINE = InnoDB;
 
 
